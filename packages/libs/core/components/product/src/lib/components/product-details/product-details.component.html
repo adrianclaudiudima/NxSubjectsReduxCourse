@@ -1,0 +1,114 @@
+<mat-dialog-content>
+  <div class="bg-white max-w-[584px] pb-5">
+
+    <div class="flex items-center w-full justify-center relative">
+      <div class="flex-none w-full ">
+        <img [src]="product.img" class="w-full h-[368px] object-center object-cover">
+        <button mat-icon-button class="!absolute right-[16px] top-[16px] !text-white" (click)="close()">
+          <mat-icon svgIcon="close"></mat-icon>
+        </button>
+        <button mat-icon-button
+                [ngClass]="favorite ? '!text-red-500':'!text-gray-800'"
+                class="!absolute right-[16px] bottom-[16px] !bg-white " (click)="favoriteClicked()">
+          <mat-icon [svgIcon]="favorite ? 'heart-solid':'heart-light'"></mat-icon>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="mt-4 text-center ">
+      <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{product.name}}</h1>
+    </div>
+
+    <div class="flex items-center pl-2 pr-2">
+      <p class="ml-2 text-base font-medium text-gray-600 text-center w-full mt-5">
+        <ng-container *ngIf="product.ingredients">
+          {{product.ingredients.join(', ')}}
+        </ng-container>
+      </p>
+    </div>
+
+    <div class="mt-4 space-y-6 pl-5 pr-5">
+      <p class=" text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias blanditiis consequatur delectus dolor mollitia recusandae reiciendis ullam voluptate! Aperiam deleniti enim iure
+        laboriosam pariatur. Aliquid deleniti
+        dolor eius eligendi, error esse, fugit illo magni, non pariatur sequi sit voluptates.</p>
+    </div>
+
+    <div class="flex flex-row items-center pl-5 pr-5 mt-5 gap-5">
+
+      <app-number-counter
+        [minLimit]="1"
+        [counter]="quantity"
+        (counterChanged)="handleQuantityChanged($event)"></app-number-counter>
+
+      <button class="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-4 rounded w-full flex flex-row justify-between" matRipple (click)="addToBag()">
+        <span>Add to cart</span>
+        <span>${{product.price}}</span>
+      </button>
+    </div>
+
+  </div>
+</mat-dialog-content>
+
+
+<!--<div class="bg-white ">
+  <div class=" lg:grid lg:grid-cols-2 lg:gap-x-8">
+    <div class="lg:max-w-lg lg:self-end">
+      <div class="mt-4">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{product.name}}</h1>
+      </div>
+      <section aria-labelledby="information-heading" class="mt-4">
+        <h2 id="information-heading" class="sr-only">Product information</h2>
+        <div class="flex items-center">
+          <p class="text-lg text-gray-900 sm:text-xl">${{product.price}}</p>
+          <div class="ml-4 pl-4 border-l border-gray-300">
+            <h2 class="sr-only">Reviews</h2>
+            <app-rating-star [reviewsNumber]="product.reviews ? product.reviews.count: 111 "></app-rating-star>
+          </div>
+        </div>
+
+        <div>
+          <div class="mt-4 space-y-6">
+            <p class="text-base text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias blanditiis consequatur delectus dolor mollitia recusandae reiciendis ullam voluptate! Aperiam deleniti enim iure
+              laboriosam pariatur. Aliquid deleniti
+              dolor eius eligendi, error esse, fugit illo magni, non pariatur sequi sit voluptates.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 mb-2 tracking-wide text-gray-900">Ingredients</div>
+        <div class="flex items-center">
+          <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <p class="ml-2 text-sm text-gray-500">
+            <ng-container *ngIf="product.ingredients">
+              {{product.ingredients.join(', ')}}
+            </ng-container>
+          </p>
+        </div>
+        <div class="mt-6">
+          <div class="mb-2 tracking-wide text-gray-900">Number of servings</div>
+          <app-number-counter [minLimit]="1" [counter]="numberOfServing" (counterChanged)="numberOfServingsChanged($event)"></app-number-counter>
+        </div>
+      </section>
+    </div>
+
+    &lt;!&ndash; Product image &ndash;&gt;
+    <div class="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
+      <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+        <img [src]="product.img" class="w-full h-full object-center object-cover">
+      </div>
+    </div>
+
+    &lt;!&ndash; Product form &ndash;&gt;
+    <div class="mt-5 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+      <section>
+        <button mat-raised-button color="primary" type="submit"
+                class="w-full rounded-md !py-1 !px-8 flex items-center justify-center text-base font-medium  ">
+          Add to bag
+        </button>
+
+      </section>
+    </div>
+  </div>
+</div>-->

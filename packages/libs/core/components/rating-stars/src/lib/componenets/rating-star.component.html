@@ -1,0 +1,15 @@
+<div class="flex items-center">
+  <div>
+    <div class="flex items-center" matTooltip="{{ratingValue}}">
+      <ng-container *ngFor="let i of [1,2,3,4,5]">
+        <mat-icon
+          class="!h-5 !w-5"
+          svgIcon="star-solid"
+          [ngClass]="ratingValue < i ?  'text-gray-300' : 'text-yellow-400'">
+        </mat-icon>
+      </ng-container>
+    </div>
+    <p class="sr-only">{{ratingValue}} out of 5 stars</p>
+  </div>
+  <p class="ml-2 text-sm text-gray-500">{{reviewsNumber}} reviews</p>
+</div>

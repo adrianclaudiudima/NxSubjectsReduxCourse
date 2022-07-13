@@ -1,0 +1,150 @@
+<!--
+<ng-container *ngIf="sideNavConfig$ | async as sideNavConfig">
+  <mat-sidenav-container class="h-full">
+
+    <mat-sidenav
+      [mode]="sideNavConfig.isLargeScreen ? 'side':'over'"
+      [(opened)]="isOpen"
+      class="w-[240px]"
+      [fixedInViewport]="true">
+
+      <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-slate-50 h-full">
+
+        <div class="absolute top-[6px] right-[6px] -mr-0 pt-2" *ngIf="!sideNavConfig.isLargeScreen">
+          <button mat-icon-button (click)="isOpen = !isOpen">
+            <mat-icon class="text-gray-800">close</mat-icon>
+          </button>
+        </div>
+
+        <div class="flex-shrink-0 flex items-center px-4">
+          <mat-icon class="text-orange-500" svgIcon="user-chef"></mat-icon>
+
+          <div class="text-orange-500 font-medium text-lg ml-2">Foodify</div>
+        </div>
+
+        <div class="pt-5 flex-1 h-0 overflow-y-auto">
+          <nav class="px-2 space-y-1">
+            <a href="#" class="bg-gray-200 text-gray-800 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <mat-icon svgIcon="chart-mixed-light" class="mr-2"></mat-icon>
+              <span>Dashboard</span>
+            </a>
+            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <mat-icon svgIcon="chart-simple-horizontal-light" class="mr-2"></mat-icon>
+              <span>Orders</span>
+            </a>
+            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <mat-icon svgIcon="burger-soda-light" class="mr-2"></mat-icon>
+              <span>Menu</span>
+            </a>
+
+          </nav>
+        </div>
+      </div>
+
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="h-full bg-white pt-2 pl-3 pr-3 lg:pl-5 lg:pr-5 lg:pt-2 ">
+      <div class="h-full over grid grid-rows-[50x_minmax(900px,_1fr)_100px]">
+        <div class="w-full max-w-2xl  lg:max-w-7xl mx-auto border-b-2 pt-2 pb-5 ">
+          <div id="headerId"></div>
+        </div>
+
+        <div class="max-w-2xl  lg:max-w-7xl mx-auto pt-6 overflow-y-hidden">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+
+
+-->
+<div class="relative max-h-full h-full bg-white w-full">
+  <div class="absolute top-0 left-0 w-full h-[70px] bg-white pr-5 pl-5">
+    <div class="w-full max-w-2xl lg:max-w-7xl mx-auto border-b-2 mt-4 pb-3 flex flex-row">
+      <div id="headerId"></div>
+      <div class="flex-1"></div>
+      <div class="flex flex-row items-center gap-2">
+        <app-shop-widgets></app-shop-widgets>
+      </div>
+    </div>
+  </div>
+  <div class="pt-[70px]">
+    <div class="max-w-2xl lg:max-w-7xl mx-auto " style="height: calc(100vh - 70px)">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+
+<!--<div style="
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  height: 100vh;
+  width: 100vw;"
+>
+  <div class="">
+    <div class="w-full max-w-2xl lg:max-w-7xl mx-auto border-b-2 pt-2 pb-5 flex flex-row">
+      <div id="headerId"></div>
+      <div class="flex-1"></div>
+      <div class="flex flex-row items-center gap-2">
+        <button mat-icon-button>
+          <mat-icon svgIcon="heart-solid" class="text-red-500"></mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon svgIcon="basket" class="text-red-500"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="max-w-2xl lg:max-w-7xl mx-auto h-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>-->
+<!--<div class="flex flex-col h-full overflow-hidden">
+  <div class="item  flex-shrink-0 z-10 bg-white">
+    <div class="w-full max-w-2xl lg:max-w-7xl mx-auto border-b-2 pt-2 pb-5 flex flex-row">
+      <div id="headerId"></div>
+      <div class="flex-1"></div>
+      <div class="flex flex-row items-center gap-2">
+        <button mat-icon-button>
+          <mat-icon svgIcon="heart-solid" class="text-red-500"></mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon svgIcon="basket" class="text-red-500"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="item h-screen flex-shrink-0 ">
+    <div class="max-w-2xl lg:max-w-7xl mx-auto pt-6 ">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>-->
+
+
+<!--<div class="h-full over grid grid-rows-[50x_minmax(900px,_1fr)_100px]">
+  <div class="w-full max-w-2xl lg:max-w-7xl mx-auto border-b-2 pt-2 pb-5 flex flex-row">
+    <div id="headerId"></div>
+    <div class="flex-1"></div>
+    <div class="flex flex-row items-center gap-2">
+      <button mat-icon-button>
+        <mat-icon svgIcon="heart-solid" class="text-red-500"></mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon svgIcon="basket" class="text-red-500"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="max-w-2xl lg:max-w-7xl mx-auto pt-6 overflow-y-hidden">
+    <router-outlet></router-outlet>
+  </div>
+</div>-->

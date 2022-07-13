@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '@angular/cdk/overlay-prebuilt.css';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', "Helvetica Neue", sans-serif;
+
+  button {
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  @apply bg-orange-500;
+}
+
+.no-padding-dialog {
+  .mat-dialog-content {
+    max-height: initial;
+  }
+
+  mat-dialog-content {
+    @apply p-0;
+    @apply m-0;
+  }
+
+  mat-dialog-container {
+    padding: 0;
+    @apply ml-2;
+    @apply mr-2;
+  }
+}
+
+.custom-snackbar {
+  @apply bg-gray-800;
+  @apply text-white;
+  border-radius: 12px !important;
+  max-width: 500px !important;
+}
+
+.bg-none {
+  @apply bg-transparent;
+}
+
+.mat-tooltip {
+  @apply bg-gray-700;
+  @apply text-white;
+  @apply tracking-normal;
+}
+
+.custom-select {
+  margin-top: 30px;
+  min-width: calc(100% + 16px) !important;
+  margin-left: 8px;
+}
+
+.mat-step-header .mat-step-icon {
+  @apply bg-gray-800;
+  @apply text-white;
+}

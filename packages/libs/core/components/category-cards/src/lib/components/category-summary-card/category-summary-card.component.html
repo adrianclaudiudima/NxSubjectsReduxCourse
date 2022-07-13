@@ -1,0 +1,17 @@
+<div class="flex overflow-x-scroll mt-2 mb-2 w-full gap-4">
+  <div class="rounded-full grow-0 shrink-0 shadow mb-2 p-2 flex items-center cursor-pointer"
+       (click)="updateCategorySelected(undefined, 0)"
+       [ngClass]="selected === 0 ? 'bg-orange-500 text-white': 'bg-white'">
+    <img src="assets/food/category/all.jpg"
+         class="border-2 flex-none w-10 h-10 object-center object-cover bg-gray-100 rounded-full cursor-pointer">
+    <div class="ml-2 mr-2 font-medium text-base text-md">All items</div>
+  </div>
+  <div *ngFor="let item of categorySummaries; let i = index"
+       [ngClass]="selected === i + 1? 'bg-orange-500 text-white': 'bg-white'"
+       class="transition-all rounded-full mb-2 grow-0 shrink-0 shadow p-2 flex  items-center cursor-pointer" (click)="updateCategorySelected(item, i + 1)">
+    <img
+      [src]="item.image"
+      class="border-2 flex-none w-10 h-10 object-center object-cover bg-gray-100 rounded-full cursor-pointer">
+    <div class="ml-2 mr-2 font-medium text-base text-md">{{item.name}}</div>
+  </div>
+</div>

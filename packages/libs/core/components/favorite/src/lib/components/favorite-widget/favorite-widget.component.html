@@ -1,0 +1,17 @@
+<button
+  mat-icon-button
+  [matBadge]="favoriteProducts.length" matBadgeOverlap
+  [matBadgeHidden]="favoriteProducts.length === 0"
+  #favoriteButton (click)="showFavoriteDetails()">
+  <mat-icon svgIcon="heart-solid" class="text-gray-800"></mat-icon>
+</button>
+
+<ng-template #favoriteList>
+  <app-favorite-list
+    [products]="favoriteProducts"
+    (addProductToCart)="handleAddProductToCart($event)"
+    (removeProductFromFavorite)="handleRemoveProductFromFavorite($event)"
+    (addAllProductsToCart)="handleAddAllProductsToCart($event)"
+    (navigateToProducts)="handleAddProducts()" class="w-full">
+  </app-favorite-list>
+</ng-template>

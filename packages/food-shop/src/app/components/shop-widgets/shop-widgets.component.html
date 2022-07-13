@@ -1,0 +1,16 @@
+<div class="flex flex-row items-center gap-2">
+  <ng-container *ngIf="favoriteState$ | async as favoriteState">
+    <app-favorite-widget
+      (addAllProductsToCart)="handleAddAllProductsToCart(favoriteState)"
+      (removeProductFromFavorite)="handleRemoveProductFromFavorite($event)"
+      (addProductToCart)="handleAddProductToCart($event)"
+      [favoriteProducts]="favoriteState"></app-favorite-widget>
+  </ng-container>
+  <ng-container *ngIf="cartState$ | async as cartState">
+    <app-cart-widget
+      (updateProductQuantity)="handleUpdateProductQuantity($event)"
+      (removeProductFromCart)="handleRemoveProductFromCart($event)"
+      [cartQuantity]="cartState.totalQuantity"
+      [cartProducts]="cartState.products"></app-cart-widget>
+  </ng-container>
+</div>

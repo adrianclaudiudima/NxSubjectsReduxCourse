@@ -1,0 +1,60 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@ngrx-orders-workshop/libs/core/components/card-selection": [
+        "packages/libs/core/components/card-selection/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/cart": [
+        "packages/libs/core/components/cart/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/category-cards": [
+        "packages/libs/core/components/category-cards/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/dom-portal": [
+        "packages/libs/core/components/dom-portal/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/favorite": [
+        "packages/libs/core/components/favorite/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/number-input-counter": [
+        "packages/libs/core/components/number-input-counter/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/product": [
+        "packages/libs/core/components/product/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/rating-stars": [
+        "packages/libs/core/components/rating-stars/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/components/stats": [
+        "packages/libs/core/components/stats/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/model": [
+        "packages/libs/core/model/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/services/api-service": [
+        "packages/libs/core/services/api-service/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/theme": [
+        "packages/libs/core/theme/src/index.ts"
+      ],
+      "@ngrx-orders-workshop/libs/core/utility/cart-utility": [
+        "packages/libs/core/utility/cart-utility/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

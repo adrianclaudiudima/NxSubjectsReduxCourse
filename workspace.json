@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "food-shop": "packages/food-shop",
+    "food-shop-e2e": "packages/food-shop-e2e",
+    "libs-core-components-card-selection": "packages/libs/core/components/card-selection",
+    "libs-core-components-cart": "packages/libs/core/components/cart",
+    "libs-core-components-category-cards": "packages/libs/core/components/category-cards",
+    "libs-core-components-dom-portal": "packages/libs/core/components/dom-portal",
+    "libs-core-components-favorite": "packages/libs/core/components/favorite",
+    "libs-core-components-number-input-counter": "packages/libs/core/components/number-input-counter",
+    "libs-core-components-product": "packages/libs/core/components/product",
+    "libs-core-components-rating-stars": "packages/libs/core/components/rating-stars",
+    "libs-core-components-stats": "packages/libs/core/components/stats",
+    "libs-core-model": "packages/libs/core/model",
+    "libs-core-services-api-service": "packages/libs/core/services/api-service",
+    "libs-core-theme": "packages/libs/core/theme",
+    "libs-core-utility-cart-utility": "packages/libs/core/utility/cart-utility"
+  }
+}
