@@ -1,7 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ShopComponent } from "./components/shop/shop.component";
-import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { CheckoutPageComponent } from "./components/checkout-page/checkout-page.component";
+import { YourOrdersComponent } from "./components/your-orders/your-orders.component";
+import { YourOrderDetailComponents } from "./components/your-order-detail/your-order-detail.components";
 
 
 const routes: Routes = [
@@ -11,7 +13,13 @@ const routes: Routes = [
   },
   {
     path: "checkout",
-    component: CheckoutComponent
+    component: CheckoutPageComponent
+  }, {
+    path: "orders",
+    component: YourOrdersComponent
+  }, {
+    path: "orders/:id",
+    component: YourOrderDetailComponents
   }
 ];
 

@@ -14,4 +14,13 @@ export class OrdersApiService {
     return this.httpClient.post<Order>("api/order", order);
   }
 
+  public loadOrders(): Observable<Order[]> {
+    return this.httpClient.get<Order[]>("api/order");
+  }
+
+  public loadOrderById(orderId: string): Observable<Order> {
+    return this.httpClient.get<Order>(`api/order/${orderId}`);
+  }
+
+
 }

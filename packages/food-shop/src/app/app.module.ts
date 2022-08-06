@@ -22,9 +22,14 @@ import { IconsRegistryModule, MaterialModule } from "@ngrx-orders-workshop/libs/
 import { ProductsStateService } from "./services/products-state.service";
 import { LibsCoreServicesApiServiceModule } from "@ngrx-orders-workshop/libs/core/services/api-service";
 import { ShopWidgetsComponent } from "./components/shop-widgets/shop-widgets.component";
-import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { CheckoutPageComponent } from "./components/checkout-page/checkout-page.component";
 import { LibsCoreComponentsCardSelectionModule } from "@ngrx-orders-workshop/libs/core/components/card-selection";
 import { CheckoutStateService } from "./services/checkout-state.service";
+import { OrdersStatusComponent } from "./components/orders-status/orders-status.component";
+import { LibsCoreComponentsCheckoutModule } from "@ngrx-orders-workshop/libs/core/components/checkout";
+import { LibsCoreComponentsOrdersModule } from "@ngrx-orders-workshop/libs/core/components/orders";
+import { YourOrdersComponent } from "./components/your-orders/your-orders.component";
+import { YourOrderDetailComponents } from "./components/your-order-detail/your-order-detail.components";
 
 @NgModule({
   declarations: [
@@ -34,7 +39,10 @@ import { CheckoutStateService } from "./services/checkout-state.service";
     OrdersTableComponent,
     OverlayProductDetailsDialog,
     ShopWidgetsComponent,
-    CheckoutComponent
+    CheckoutPageComponent,
+    OrdersStatusComponent,
+    YourOrdersComponent,
+    YourOrderDetailComponents
   ],
   imports: [
     BrowserAnimationsModule,
@@ -52,7 +60,9 @@ import { CheckoutStateService } from "./services/checkout-state.service";
     LibsCoreComponentsCartModule,
     LibsCoreComponentsCategoryCardsModule,
     LibsCoreServicesApiServiceModule,
-    LibsCoreComponentsCardSelectionModule
+    LibsCoreComponentsCardSelectionModule,
+    LibsCoreComponentsCheckoutModule,
+    LibsCoreComponentsOrdersModule
   ],
   providers: [
     CartStateService,

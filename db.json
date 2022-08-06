@@ -646,48 +646,878 @@
       "orderedProducts": [
         {
           "product": {
-            "id": 15,
-            "img": "assets/food/steak/5.jpg",
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
             "ingredients": [
-              "Rosemary",
-              "Garlic",
-              "Butter",
-              "Pepper",
-              "Smoked paprika"
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
             ],
-            "price": 16.08,
-            "name": "T-Bone Steak",
-            "reviewNumber": 637,
-            "reviewStar": 4.52,
-            "size": "282 g",
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Soem description",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 33.7,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.04,
+        "serviceCharge": 3.37,
+        "total": 46.61,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-04T21:48:58.880Z",
+      "id": "B409D0CE",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Soem description",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 33.7,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.04,
+        "serviceCharge": 3.37,
+        "total": 46.61,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_ACCEPTED",
+      "orderDate": "2022-08-04T21:48:58.880Z",
+      "id": "F409D0CE",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Soem description",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 33.7,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.04,
+        "serviceCharge": 3.37,
+        "total": 46.61,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_PROCESSING",
+      "orderDate": "2022-08-04T21:48:58.880Z",
+      "id": "E409D0CE",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Soem description",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 33.7,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.04,
+        "serviceCharge": 3.37,
+        "total": 46.61,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_DELIVERED",
+      "orderDate": "2022-08-04T21:48:58.880Z",
+      "id": "D409D0CE",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Soem description",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 33.7,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.04,
+        "serviceCharge": 3.37,
+        "total": 46.61,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_CANCELED",
+      "orderDate": "2022-08-04T21:48:58.880Z",
+      "id": "A409D0CE",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Soem description",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 33.7,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.04,
+        "serviceCharge": 3.37,
+        "total": 46.61,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-04T21:48:58.880Z",
+      "id": "B409D0CE",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 2
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 11.76,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 2.46,
+        "serviceCharge": 1.18,
+        "total": 15.4,
+        "paymentFee": 0
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-04T23:35:24.473Z",
+      "id": "2CD0D1D5",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 39,
+            "img": "assets/food/drinks/9.jpg",
+            "ingredients": [
+              "Limes",
+              "Vodka",
+              "Apple juice"
+            ],
+            "price": 11.73,
+            "name": "Aperol Spritz",
+            "reviewNumber": 582,
+            "reviewStar": 2.45,
+            "size": "341 g",
+            "productType": "DRINKS"
+          },
+          "quantity": 3
+        },
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Adrian Dima",
+      "comment": "Some comment",
+      "table": 4,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 41.07,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 8.58,
+        "serviceCharge": 4.11,
+        "total": 53.76,
+        "paymentFee": 0
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-05T07:44:17.008Z",
+      "id": "968D7A2E",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 1,
+            "img": "assets/food/pizza/1.jpg",
+            "ingredients": [
+              "Basil",
+              "Fresh Tomato"
+            ],
+            "price": 17.84,
+            "name": "Cheese Pizza",
+            "reviewNumber": 860,
+            "reviewStar": 3.89,
+            "size": "403 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 8,
+            "img": "assets/food/pizza/8.jpg",
+            "ingredients": [
+              "Sweet Corn",
+              "100% Mozzarella"
+            ],
+            "price": 14.86,
+            "name": "Buffalo Pizza",
+            "reviewNumber": 554,
+            "reviewStar": 2.41,
+            "size": "309 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 12,
+            "img": "assets/food/steak/2.jpg",
+            "ingredients": [
+              "Marinade"
+            ],
+            "price": 16.59,
+            "name": "Tenderloin Steak",
+            "reviewNumber": 516,
+            "reviewStar": 3.72,
+            "size": "350 g",
             "productType": "STEAK"
           },
           "quantity": 1
         },
         {
           "product": {
-            "id": 16,
-            "img": "assets/food/steak/6.jpg",
+            "id": 11,
+            "img": "assets/food/steak/1.jpg",
             "ingredients": [
-              "Mushrooms",
-              "Pepper",
-              "Smoked paprika",
+              "Butter",
               "Tomatoes"
             ],
-            "price": 13.97,
-            "name": "Flank Steak",
-            "reviewNumber": 836,
-            "reviewStar": 4.95,
-            "size": "184 g",
+            "price": 9.65,
+            "name": "Ribeye Steak",
+            "reviewNumber": 996,
+            "reviewStar": 3.59,
+            "size": "234 g",
+            "productType": "STEAK"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 10,
+            "img": "assets/food/pizza/10.jpg",
+            "ingredients": [
+              "100% Mozzarella",
+              "Fresh Tomato"
+            ],
+            "price": 7.38,
+            "name": "The Works Pizza",
+            "reviewNumber": 331,
+            "reviewStar": 3.76,
+            "size": "223 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        }
+      ],
+      "name": "Dima",
+      "comment": "Some comment ",
+      "table": 3,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 82.18,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 17.18,
+        "serviceCharge": 8.22,
+        "total": 107.58,
+        "paymentFee": 0
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-05T07:56:02.091Z",
+      "id": "94DF727D",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 2,
+            "img": "assets/food/pizza/2.jpg",
+            "ingredients": [
+              "Chicken",
+              "Cream Sauce",
+              "Sweet Corn",
+              "Fresh Tomato",
+              "Baby Spinach"
+            ],
+            "price": 5.88,
+            "name": "Veggie Pizza",
+            "reviewNumber": 148,
+            "reviewStar": 3.55,
+            "size": "302 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 3,
+            "img": "assets/food/pizza/3.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Basil",
+              "Cream Sauce",
+              "Fresh Tomato",
+              "Chicken"
+            ],
+            "price": 9.98,
+            "name": "Pepperoni Pizza",
+            "reviewNumber": 994,
+            "reviewStar": 3.76,
+            "size": "486 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 4,
+            "img": "assets/food/pizza/4.jpg",
+            "ingredients": [
+              "Baby Spinach",
+              "Sweet Corn",
+              "Chicken"
+            ],
+            "price": 5.14,
+            "name": "Meat Pizza",
+            "reviewNumber": 881,
+            "reviewStar": 2.79,
+            "size": "238 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 12,
+            "img": "assets/food/steak/2.jpg",
+            "ingredients": [
+              "Marinade"
+            ],
+            "price": 16.59,
+            "name": "Tenderloin Steak",
+            "reviewNumber": 516,
+            "reviewStar": 3.72,
+            "size": "350 g",
             "productType": "STEAK"
           },
           "quantity": 1
         }
       ],
-      "name": "Adrian Dima",
-      "table": 3,
-      "comment": "I will pay cash ! ",
-      "id": 1
+      "name": "Adrian ",
+      "comment": "Some comment ",
+      "table": 4,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 37.59,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 7.86,
+        "serviceCharge": 3.76,
+        "total": 51.71,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-05T13:27:42.180Z",
+      "id": "E1FCC062",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": {
+            "id": 13,
+            "img": "assets/food/steak/3.jpg",
+            "ingredients": [
+              "Smoked paprika",
+              "Potato",
+              "Butter",
+              "Mushrooms",
+              "Pepper"
+            ],
+            "price": 19.47,
+            "name": "Strip Steak",
+            "reviewNumber": 269,
+            "reviewStar": 3.2,
+            "size": "558 g",
+            "productType": "STEAK"
+          },
+          "quantity": 4
+        },
+        {
+          "product": {
+            "id": 7,
+            "img": "assets/food/pizza/7.jpg",
+            "ingredients": [
+              "Cream Sauce",
+              "Baby Spinach",
+              "Cheddar",
+              "Fresh Tomato",
+              "Basil"
+            ],
+            "price": 6.65,
+            "name": "Hawaiian Pizza",
+            "reviewNumber": 736,
+            "reviewStar": 1.92,
+            "size": "192 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 2
+        },
+        {
+          "product": {
+            "id": 6,
+            "img": "assets/food/pizza/6.jpg",
+            "ingredients": [
+              "100% Mozzarella",
+              "Baby Spinach",
+              "Basil",
+              "Sweet Corn"
+            ],
+            "price": 12.43,
+            "name": "BBQ Chicken Pizza",
+            "reviewNumber": 1128,
+            "reviewStar": 1.18,
+            "size": "557 g",
+            "productType": "PIZZA"
+          },
+          "quantity": 3
+        }
+      ],
+      "name": "Dima ",
+      "comment": "Adrian ",
+      "table": 4,
+      "orderPaymentSummaryExtraFee": {
+        "subtotal": 128.47,
+        "serviceChargePercentage": 10,
+        "vatRatePercentage": 19,
+        "vatRate": 26.85,
+        "serviceCharge": 12.85,
+        "total": 170.67,
+        "paymentFee": 2.5
+      },
+      "orderStatus": "ORDER_NEW",
+      "orderDate": "2022-08-05T13:30:37.298Z",
+      "id": "617FBA17",
+      "userId": "df5e2004-34d8-4013-8f27-a334f86bfc97"
     }
   ]
 }

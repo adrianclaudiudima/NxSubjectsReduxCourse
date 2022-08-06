@@ -1,6 +1,5 @@
 import { CardData } from "@ngrx-orders-workshop/libs/core/components/card-selection";
-import { ProductOrder } from "@ngrx-orders-workshop/libs/core/model";
-import { CartCheckoutModel, CartCheckoutPaymentFeeModel } from "../model/cart-checkout.model";
+import { OrderPaymentSummary, OrderPaymentSummaryExtraFee, ProductOrder } from "@ngrx-orders-workshop/libs/core/model";
 import { inject } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 
@@ -30,7 +29,7 @@ export const roundTo2Decimals = (value: number): number => {
 };
 
 
-export const getCartPriceModel = (productOrders: ProductOrder[], vatRatePercentage: number, serviceChargePercentage: number): CartCheckoutModel => {
+export const getCartPriceModel = (productOrders: ProductOrder[], vatRatePercentage: number, serviceChargePercentage: number): OrderPaymentSummary => {
   const subtotal = calculateCartSubtotal(productOrders);
   const serviceCharge = calculateServiceCharge(subtotal, serviceChargePercentage);
   const vatRate = calculateVatRate(subtotal + serviceCharge, vatRatePercentage);
@@ -43,7 +42,8 @@ export const getCartPriceModel = (productOrders: ProductOrder[], vatRatePercenta
     total: roundTo2Decimals(subtotal + serviceCharge + vatRate)
   };
 };
-export const getCartPriceFeeModel = (cartCheckoutModel: CartCheckoutModel, paymentFee: number): CartCheckoutPaymentFeeModel => {
+
+export const getCartPriceFeeModel = (cartCheckoutModel: OrderPaymentSummary, paymentFee: number): OrderPaymentSummaryExtraFee => {
   return {
     ...cartCheckoutModel,
     paymentFee,
@@ -56,6 +56,6 @@ export const buildCheckoutForm = () => {
   return formBuilder.group({
     name: ["", Validators.required],
     table: ["", Validators.required],
-    comment: ["", Validators.required]
+    comment: [""]
   });
 };
