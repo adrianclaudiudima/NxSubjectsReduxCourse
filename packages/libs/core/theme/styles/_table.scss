@@ -11,3 +11,7 @@ table tr:last-child td /*To remove the last border*/
 {
   border-bottom: 0 solid
 }
+
+table tr .mat-table-sticky {
+  top: -5px !important;
+}

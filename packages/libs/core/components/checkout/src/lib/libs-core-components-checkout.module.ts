@@ -7,6 +7,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { LibsCoreComponentsCardSelectionModule } from "@ngrx-orders-workshop/libs/core/components/card-selection";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [CheckoutComponent],
@@ -17,7 +19,9 @@ import { LibsCoreComponentsCardSelectionModule } from "@ngrx-orders-workshop/lib
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    LibsCoreComponentsCardSelectionModule
+    LibsCoreComponentsCardSelectionModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [CheckoutComponent]
 })

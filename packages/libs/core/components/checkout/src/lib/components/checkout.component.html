@@ -59,6 +59,13 @@
                     </button>
                   </div>
                 </div>
+                <div class="mt-2 ml-2">
+                  <button matTooltip="Remove product" mat-button class="bg-gray-200 text-gray-800 !min-w-[20px] !h-[30px] !w-[30px] !p-0 !leading-[10px]" (click)="removeProduct.emit(productCart)">
+                    <mat-icon svgIcon="trash-light" class="!h-[12px]"></mat-icon>
+                  </button>
+                </div>
+
+
               </div>
             </div>
             <div class="mt-auto mb-auto">

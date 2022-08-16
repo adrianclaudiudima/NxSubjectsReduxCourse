@@ -7,10 +7,15 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { FavoriteListComponent } from "./components/favorite-list/favorite-list.component";
 import { FavoriteWidgetComponent } from "./components/favorite-widget/favorite-widget.component";
 import { MatBadgeModule } from "@angular/material/badge";
+import { OrdersWidgetComponent } from "./components/orders-widget/orders-widget.component";
 
 @NgModule({
 
-  declarations: [FavoriteListComponent, FavoriteWidgetComponent],
+  declarations: [
+    FavoriteListComponent,
+    FavoriteWidgetComponent,
+    OrdersWidgetComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -19,7 +24,7 @@ import { MatBadgeModule } from "@angular/material/badge";
     MatBadgeModule,
     OverlayModule
   ],
-  exports: [FavoriteListComponent, FavoriteWidgetComponent]
+  exports: [FavoriteListComponent, FavoriteWidgetComponent, OrdersWidgetComponent]
 })
 export class LibsCoreComponentsFavoriteModule {
 }

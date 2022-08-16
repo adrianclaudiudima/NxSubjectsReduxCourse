@@ -32,6 +32,9 @@ export class CheckoutComponent {
   updateProductQuantity: EventEmitter<ProductOrder> = new EventEmitter<ProductOrder>();
 
   @Output()
+  removeProduct: EventEmitter<ProductOrder> = new EventEmitter<ProductOrder>();
+
+  @Output()
   createOrder: EventEmitter<Order> = new EventEmitter<Order>();
 
   @Output()

@@ -1,0 +1,114 @@
+{
+  "projectType": "application",
+  "sourceRoot": "packages/food-shop-backoffice/src",
+  "prefix": "ngrx-orders-workshop",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/food-shop-backoffice",
+        "index": "packages/food-shop-backoffice/src/index.html",
+        "main": "packages/food-shop-backoffice/src/main.ts",
+        "polyfills": "packages/food-shop-backoffice/src/polyfills.ts",
+        "tsConfig": "packages/food-shop-backoffice/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "packages/food-shop-backoffice/src/favicon.ico",
+          "packages/food-shop-backoffice/src/assets",
+          {
+            "glob": "**/*",
+            "input": "packages/libs/core/theme/assets/icons/",
+            "output": "assets/icons/"
+          },
+          {
+            "glob": "**/*",
+            "input": "packages/libs/core/theme/assets/food/",
+            "output": "assets/food/"
+          }
+        ],
+        "styles": [
+          "packages/libs/core/theme/styles/styles.scss",
+          "packages/food-shop-backoffice/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "packages/food-shop-backoffice/src/environments/environment.ts",
+              "with": "packages/food-shop-backoffice/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "food-shop-backoffice:build:production"
+        },
+        "development": {
+          "browserTarget": "food-shop-backoffice:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "proxyConfig": "proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "food-shop-backoffice:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/food-shop-backoffice/**/*.ts",
+          "packages/food-shop-backoffice/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/packages/food-shop-backoffice"
+      ],
+      "options": {
+        "jestConfig": "packages/food-shop-backoffice/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

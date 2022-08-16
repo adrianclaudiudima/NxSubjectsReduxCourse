@@ -3,7 +3,7 @@
   "version": 2,
   "projects": {
     "food-shop": "packages/food-shop",
-    "food-shop-e2e": "packages/food-shop-e2e",
+    "food-shop-backoffice": "packages/food-shop-backoffice",
     "libs-core-components-card-selection": "packages/libs/core/components/card-selection",
     "libs-core-components-cart": "packages/libs/core/components/cart",
     "libs-core-components-category-cards": "packages/libs/core/components/category-cards",

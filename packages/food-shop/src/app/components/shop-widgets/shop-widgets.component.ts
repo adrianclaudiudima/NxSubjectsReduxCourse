@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
-import { Product, ProductOrder } from "@ngrx-orders-workshop/libs/core/model";
+import { DomainEntity, Order, Product, ProductOrder } from "@ngrx-orders-workshop/libs/core/model";
 import { CartStateService } from "../../services/cart-state.service";
 import { FavoriteStateService } from "../../services/favorite-state.service";
 import { map, Observable } from "rxjs";
+import { Router } from "@angular/router";
+import { OrdersStateService } from "../../services/orders-state.service";
 
 @Component({
   selector: "app-shop-widgets",
@@ -12,17 +14,23 @@ export class ShopWidgetsComponent {
 
   cartState$: Observable<{ products: ProductOrder[], totalQuantity: number }>;
   favoriteState$: Observable<Array<Product>>;
+  orders$: Observable<DomainEntity<Order[]>>;
 
   constructor(private cartStateService: CartStateService,
-              private favoriteStateService: FavoriteStateService) {
+              private favoriteStateService: FavoriteStateService,
+              private ordersStateService: OrdersStateService,
+              private router: Router
+  ) {
     this.favoriteState$ = this.favoriteStateService.favoriteProducts$;
     this.cartState$ = this.cartStateService.productsInCart$.pipe(
       map<ProductOrder[], { products: ProductOrder[], totalQuantity: number }>(products => ({
         products: products,
-        totalQuantity: products.length > 0 ? products.map(prod => prod.quantity).reduce((previousValue, currentValue) => previousValue + currentValue) : 0
+        totalQuantity: products.length > 0 ?
+          products.map(prod => prod.quantity).reduce((previousValue, currentValue) => previousValue + currentValue) : 0
       }))
     );
-
+    this.orders$ = this.ordersStateService.ordersState$;
+    this.ordersStateService.loadOrders();
   }
 
   handleRemoveProductFromCart(productOrder: ProductOrder): void {
@@ -47,4 +55,7 @@ export class ShopWidgetsComponent {
     this.favoriteStateService.removeProduct(productOrder.product);
   }
 
+  handleOrdersClicked() {
+    this.router.navigate(["orders"]);
+  }
 }

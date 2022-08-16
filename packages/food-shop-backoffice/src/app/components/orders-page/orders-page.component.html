@@ -1,0 +1,73 @@
+<app-dom-portal [selector]="'#rightHeaderId'">
+  <button mat-button (click)="reloadOrders()" class="bg-gray-800 text-white">Get new orders</button>
+</app-dom-portal>
+
+<div class="h-full pt-5">
+  <mat-tab-group [(selectedIndex)]="selectedIndex" class="h-full">
+    <mat-tab label="All orders">
+      <ng-container *ngIf="orders$ | async as ordersState">
+        <div class="h-full overflow-y-scroll">
+          <app-order-table
+            [orders]="ordersState.paginatedOrders.domain"
+            [showOrdersStatus]="true"
+            (orderStatusChanged)="updateOrderStatus($event)"
+          >
+          </app-order-table>
+        </div>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="New">
+      <ng-container *ngIf="newOrders$ | async as OrdersState">
+        <app-order-table
+          [orders]="OrdersState.paginatedOrders.domain"
+          [showOrdersStatus]="false"
+          (orderStatusChanged)="updateOrderStatus($event)"
+        >
+        </app-order-table>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="Accepted">
+      <ng-container *ngIf="acceptedOrders$ | async as OrdersState">
+        <app-order-table
+          [orders]="OrdersState.paginatedOrders.domain"
+          [showOrdersStatus]="false"
+          (orderStatusChanged)="updateOrderStatus($event)"
+        >
+        </app-order-table>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="Processing">
+      <ng-container *ngIf="processingOrders$ | async as OrdersState">
+        <app-order-table
+          [orders]="OrdersState.paginatedOrders.domain"
+          [showOrdersStatus]="false"
+          (orderStatusChanged)="updateOrderStatus($event)"
+        >
+        </app-order-table>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="Canceled">
+      <ng-container *ngIf="canceledOrders | async as OrdersState">
+        <app-order-table
+          [orders]="OrdersState.paginatedOrders.domain"
+          [showOrdersStatus]="false"
+          (orderStatusChanged)="updateOrderStatus($event)"
+        >
+        </app-order-table>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="Delivered">
+      <ng-container *ngIf="deliveredOrders$ | async as OrdersState">
+        <app-order-table
+          [orders]="OrdersState.paginatedOrders.domain"
+          [showOrdersStatus]="false"
+          (orderStatusChanged)="updateOrderStatus($event)"
+        >
+        </app-order-table>
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+

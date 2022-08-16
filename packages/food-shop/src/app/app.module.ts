@@ -1,13 +1,11 @@
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
-import { NxWelcomeComponent } from "./nx-welcome.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LayoutModule } from "@angular/cdk/layout";
 import { DomPortalModule } from "@ngrx-orders-workshop/libs/core/components/dom-portal";
 import { HttpClientModule } from "@angular/common/http";
-import { OrdersTableComponent } from "./components/orders-table/orders-table.component";
 import { LibsCoreComponentsStatsModule } from "@ngrx-orders-workshop/libs/core/components/stats";
 import { LibsCoreComponentsProductModule } from "@ngrx-orders-workshop/libs/core/components/product";
 import { LibsCoreComponentsNumberInputCounterModule } from "@ngrx-orders-workshop/libs/core/components/number-input-counter";
@@ -30,13 +28,12 @@ import { LibsCoreComponentsCheckoutModule } from "@ngrx-orders-workshop/libs/cor
 import { LibsCoreComponentsOrdersModule } from "@ngrx-orders-workshop/libs/core/components/orders";
 import { YourOrdersComponent } from "./components/your-orders/your-orders.component";
 import { YourOrderDetailComponents } from "./components/your-order-detail/your-order-detail.components";
+import { OrdersStateService } from "./services/orders-state.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     ShopComponent,
-    NxWelcomeComponent,
-    OrdersTableComponent,
     OverlayProductDetailsDialog,
     ShopWidgetsComponent,
     CheckoutPageComponent,
@@ -51,9 +48,9 @@ import { YourOrderDetailComponents } from "./components/your-order-detail/your-o
     ReactiveFormsModule,
     AppRouting,
     DomPortalModule,
-    LibsCoreComponentsNumberInputCounterModule,
     IconsRegistryModule,
     HttpClientModule,
+    LibsCoreComponentsNumberInputCounterModule,
     LibsCoreComponentsStatsModule,
     LibsCoreComponentsProductModule,
     LibsCoreComponentsFavoriteModule,
@@ -68,7 +65,8 @@ import { YourOrderDetailComponents } from "./components/your-order-detail/your-o
     CartStateService,
     FavoriteStateService,
     ProductsStateService,
-    CheckoutStateService
+    CheckoutStateService,
+    OrdersStateService
   ],
   bootstrap: [AppComponent]
 })

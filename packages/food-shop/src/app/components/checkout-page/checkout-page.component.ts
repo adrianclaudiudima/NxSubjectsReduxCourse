@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { CartStateService } from "../../services/cart-state.service";
-import { BehaviorSubject, combineLatest, map, Observable, Subject, take } from "rxjs";
+import { BehaviorSubject, combineLatest, map, Observable, Subject, take, tap } from "rxjs";
 import { Order, OrderPaymentSummaryExtraFee, Product, ProductOrder } from "@ngrx-orders-workshop/libs/core/model";
 import { CardData } from "@ngrx-orders-workshop/libs/core/components/card-selection";
 import { getCartPriceFeeModel, mapPaymentFeeFromCardData } from "@ngrx-orders-workshop/libs/core/utility/cart-utility";
@@ -33,7 +33,13 @@ export class CheckoutPageComponent {
         map(([checkoutSummary, paymentFee]) => {
           return getCartPriceFeeModel(checkoutSummary, paymentFee);
         })
-      ), cartState.productsInCart$
+      ), cartState.productsInCart$.pipe(
+        tap(products => {
+          if (products?.length === 0) {
+            this.router.navigate(["/"]);
+          }
+        })
+      )
     ]).pipe(
       map(([orderPaymentSummaryExtraFee, cartProducts]) => ({ orderPaymentSummaryExtraFee, cartProducts }))
     );
@@ -61,4 +67,9 @@ export class CheckoutPageComponent {
   handleUpdateProductQuantity(productOrder: { product: Product; quantity: number }) {
     this.cartState.updateQuantity(productOrder.product, productOrder.quantity);
   }
+
+  handleRemoveProduct(product: ProductOrder) {
+    this.cartState.removeProductFromCart(product);
+  }
+
 }

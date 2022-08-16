@@ -31,6 +31,9 @@ export class IconsRegistryModule {
     this.matIconRegistry.addSvgIcon("trash-light", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/trash-light.svg"));
     this.matIconRegistry.addSvgIcon("cart-circle-plus-light", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/cart-circle-plus-light.svg"));
     this.matIconRegistry.addSvgIcon("arrow-left-solid", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/arrow-left-solid.svg"));
+    this.matIconRegistry.addSvgIcon("menu", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/bars-solid.svg"));
+    this.matIconRegistry.addSvgIcon("memo-circle-info-light", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/memo-circle-info-light.svg"));
+    this.matIconRegistry.addSvgIcon("memo-circle-info-solid", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/memo-circle-info-solid.svg"));
   }
 
 
