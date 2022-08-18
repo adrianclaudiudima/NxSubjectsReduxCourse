@@ -18,7 +18,6 @@ export class YourOrderDetailComponents {
       map(paramMap => paramMap.get("id")),
       tap(id => {
         if (!id) {
-          console.log(id)
           this.router.navigate(["/orders"]);
         }
       }),

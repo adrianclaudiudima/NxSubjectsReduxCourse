@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { OrdersApiService } from "@ngrx-orders-workshop/libs/core/services/api-service";
 import { DomainEntity, Order, OrderStatus } from "@ngrx-orders-workshop/libs/core/model";
 import { BehaviorSubject, catchError, map, Observable, of, Subject, switchMap } from "rxjs";
+import { Sort } from "@angular/material/sort";
 
 export interface PaginationConfig {
   length: number;
@@ -9,11 +10,10 @@ export interface PaginationConfig {
   pageSize: number;
 }
 
-
 export interface OrdersState {
   paginatedOrders: DomainEntity<Order[]>;
   paginationData: PaginationConfig;
-  sort: any;
+  sort: Sort;
 }
 
 @Injectable()
@@ -22,12 +22,23 @@ export class BackofficeOrdersStateService {
   private ordersState: OrdersState = {
     paginatedOrders: { domain: [], requestStatus: { status: "NEW" } },
     paginationData: { length: 0, pageIndex: 0, pageSize: 10 },
-    sort: undefined
+    sort: { direction: "", active: "" }
   };
 
   private ordersSubject: Subject<OrdersState> = new BehaviorSubject(this.ordersState);
-
   public ordersState$: Observable<OrdersState> = this.ordersSubject.asObservable();
+  public ordersStateSorted$: Observable<OrdersState> = this.ordersState$.pipe(
+    map(state => {
+      return {
+        ...state,
+        paginatedOrders: {
+          ...state.paginatedOrders,
+          domain: sortOrders([...state.paginatedOrders.domain], state.sort)
+        }
+      };
+
+    })
+  );
 
   constructor(private ordersApiService: OrdersApiService) {
   }
@@ -123,7 +134,7 @@ export class BackofficeOrdersStateService {
     );
   }
 
-  private setPendingState() {
+  private setPendingState(): void {
     this.ordersState = {
       ...this.ordersState, paginatedOrders: {
         ...this.ordersState.paginatedOrders, requestStatus: {
@@ -133,4 +144,58 @@ export class BackofficeOrdersStateService {
     };
     this.ordersSubject.next(this.ordersState);
   }
+
+  sortOrdersOnlyOnFE(sort: Sort): void {
+    this.ordersState = {
+      ...this.ordersState,
+      sort
+    };
+    this.ordersSubject.next(this.ordersState);
+  }
+
 }
+
+
+export const sortOrders = (orders: Order[], sort: Sort) => {
+  if (sort.active !== "" && sort.direction !== "") {
+    switch (sort.active) {
+      case "orderId": {
+        if (sort.direction === "asc") {
+          return orders.sort((a, b) => a === b ? 0 : (a.id as string).localeCompare((b.id as string)) ? -1 : 1);
+        } else {
+          return orders.sort((a, b) => a === b ? 0 : (a.id as string).localeCompare((b.id as string)) ? 1 : -1);
+        }
+
+      }
+      case "totalPrice": {
+        if (sort.direction === "asc") {
+          return orders.sort((a, b) =>
+            a.orderPaymentSummaryExtraFee.total > b.orderPaymentSummaryExtraFee.total ? 1 :
+              a.orderPaymentSummaryExtraFee.total < b.orderPaymentSummaryExtraFee.total ? -1 : 0
+          );
+        } else {
+          return orders.sort((a, b) =>
+            a.orderPaymentSummaryExtraFee.total > b.orderPaymentSummaryExtraFee.total ? -1 :
+              a.orderPaymentSummaryExtraFee.total < b.orderPaymentSummaryExtraFee.total ? 1 : 0
+          );
+
+        }
+      }
+      case "orderDate": {
+        if (sort.direction === "asc") {
+          return orders.sort((a, b) => a.orderDate > b.orderDate ? -1 :
+            a.orderDate < b.orderDate ? 1 : 0);
+        } else {
+          return orders.sort((a, b) => a.orderDate > b.orderDate ? 1 :
+            a.orderDate < b.orderDate ? -1 : 0);
+        }
+      }
+      default: {
+        return orders;
+      }
+    }
+  } else {
+    return orders;
+  }
+
+};

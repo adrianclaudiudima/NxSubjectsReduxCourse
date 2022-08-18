@@ -1,7 +1,9 @@
 import { Component } from "@angular/core";
 import { BackofficeOrdersStateService, OrdersState } from "../../services/backoffice-orders-state.service";
 import { Order, OrderStatus } from "@ngrx-orders-workshop/libs/core/model";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Sort } from "@angular/material/sort";
 
 
 @Component({
@@ -19,8 +21,15 @@ export class OrdersPageComponent {
   deliveredOrders$: Observable<OrdersState>;
   selectedIndex = 0;
 
-  constructor(private backofficeOrdersState: BackofficeOrdersStateService) {
-    this.orders$ = backofficeOrdersState.ordersState$;
+  constructor(
+    private backofficeOrdersState: BackofficeOrdersStateService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+    this.orders$ = backofficeOrdersState.ordersState$.pipe(
+      map(ord => {
+        return { ...ord };
+      })
+    );
     this.acceptedOrders$ = backofficeOrdersState.getOrdersFilteredByOrderStatus(OrderStatus.ORDER_ACCEPTED);
     this.newOrders$ = backofficeOrdersState.getOrdersFilteredByOrderStatus(OrderStatus.ORDER_NEW);
     this.processingOrders$ = backofficeOrdersState.getOrdersFilteredByOrderStatus(OrderStatus.ORDER_PROCESSING);
@@ -37,4 +46,11 @@ export class OrdersPageComponent {
     this.backofficeOrdersState.loadAllOrders();
   }
 
+  handleSortChanged(sort: Sort) {
+    this.backofficeOrdersState.sortOrdersOnlyOnFE(sort);
+  }
+
 }
+
+const mapTabIdToOrderStatus = () => {
+};

@@ -23,9 +23,11 @@ export class OrderTableComponent {
 
   @Input() orders: Array<Order> = [];
   @Input() showOrdersStatus = true;
+  @Input() sort: Sort | undefined;
   @Input() paginationConfig: PaginationConfig | undefined;
   @Output() orderStatusChanged: EventEmitter<{ order: Order, newOrderStatus: OrderStatus }> = new EventEmitter<{ order: Order; newOrderStatus: OrderStatus }>();
   @Output() pageChanged: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
+  @Output() sortChanged: EventEmitter<Sort> = new EventEmitter<Sort>();
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.isSmallScreen$ = breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).pipe(
@@ -41,7 +43,7 @@ export class OrderTableComponent {
   }
 
   sortData(sort: Sort) {
-
+    this.sortChanged.emit(sort);
   }
 
 }

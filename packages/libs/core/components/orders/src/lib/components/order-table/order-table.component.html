@@ -1,6 +1,9 @@
 <ng-container *ngIf="{value: isSmallScreen$ | async } as isSmallScreen">
   <table
-    matSort (matSortChange)="sortData($event)"
+    matSort
+    [matSortActive]="sort === undefined ? '' : sort.active"
+    [matSortDirection]="sort === undefined ? '': sort.direction"
+    (matSortChange)="sortData($event)"
     mat-table [dataSource]="orders" multiTemplateDataRows class="w-full rounded shadow">
     <ng-container matColumnDef="orderId">
       <th mat-header-cell *matHeaderCellDef

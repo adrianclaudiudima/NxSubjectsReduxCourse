@@ -3,6 +3,35 @@
 </app-dom-portal>
 
 <div class="h-full pt-5">
+  <mat-tab-group [(selectedIndex)]="selectedIndex" >
+    <mat-tab label="All orders">
+    </mat-tab>
+    <mat-tab label="New">
+    </mat-tab>
+    <mat-tab label="Accepted">
+    </mat-tab>
+    <mat-tab label="Processing">
+    </mat-tab>
+    <mat-tab label="Canceled">
+    </mat-tab>
+    <mat-tab label="Delivered">
+    </mat-tab>
+  </mat-tab-group>
+  <ng-container *ngIf="orders$ | async as ordersState">
+    <div class="h-full overflow-y-scroll">
+      <app-order-table
+        [orders]="ordersState.paginatedOrders.domain"
+        [showOrdersStatus]="true"
+        (sortChanged)="handleSortChanged($event)"
+        (orderStatusChanged)="updateOrderStatus($event)"
+      >
+      </app-order-table>
+    </div>
+  </ng-container>
+</div>
+
+
+<!--<div class="h-full pt-5">
   <mat-tab-group [(selectedIndex)]="selectedIndex" class="h-full">
     <mat-tab label="All orders">
       <ng-container *ngIf="orders$ | async as ordersState">
@@ -67,7 +96,7 @@
       </ng-container>
     </mat-tab>
   </mat-tab-group>
-</div>
+</div>-->
 
 
 

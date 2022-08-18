@@ -13,11 +13,13 @@
   </div>
 
   <div class="h-full lg:overflow-y-scroll">
-    <ng-container *ngIf="orders$ | async as ordersState">
+    <ng-container *ngIf="ordersState$ | async as ordersState">
       <app-order-table
         [orders]="ordersState.paginatedOrders.domain"
         [showOrdersStatus]="true"
         (orderStatusChanged)="updateOrderStatus($event)"
+        (sortChanged)="handleSortChange($event)"
+        [sort]="ordersState.sort"
       >
       </app-order-table>
     </ng-container>
