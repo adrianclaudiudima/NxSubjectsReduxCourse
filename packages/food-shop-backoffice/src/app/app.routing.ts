@@ -7,6 +7,11 @@ import { OrdersPageComponent } from "./components/orders-page/orders-page.compon
 const routes: Routes = [
   {
     path: "",
+    pathMatch: "full",
+    redirectTo: "dashboard"
+  },
+  {
+    path: "dashboard",
     component: DashboardPageComponent,
     pathMatch: "full"
   },

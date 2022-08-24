@@ -1,15 +1,14 @@
 import { Component } from "@angular/core";
-import { BackofficeOrdersStateService, OrdersState } from "../../services/backoffice-orders-state.service";
+import { BoOrdersService, OrdersState } from "../../services/bo-orders.service";
 import { Order, OrderStatus } from "@ngrx-orders-workshop/libs/core/model";
-import { map, Observable } from "rxjs";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Observable } from "rxjs";
 import { Sort } from "@angular/material/sort";
+import { MatTabChangeEvent } from "@angular/material/tabs";
 
 
 @Component({
   selector: "app-orders-page",
-  templateUrl: "orders-page.component.html",
-  styleUrls: ["orders-page.component.scss"]
+  templateUrl: "orders-page.component.html"
 })
 export class OrdersPageComponent {
 
@@ -20,16 +19,11 @@ export class OrdersPageComponent {
   canceledOrders: Observable<OrdersState>;
   deliveredOrders$: Observable<OrdersState>;
   selectedIndex = 0;
+  ORDER_STATUS = OrderStatus;
 
   constructor(
-    private backofficeOrdersState: BackofficeOrdersStateService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
-    this.orders$ = backofficeOrdersState.ordersState$.pipe(
-      map(ord => {
-        return { ...ord };
-      })
-    );
+    private backofficeOrdersState: BoOrdersService) {
+    this.orders$ = backofficeOrdersState.ordersSortedAndFiltered$;
     this.acceptedOrders$ = backofficeOrdersState.getOrdersFilteredByOrderStatus(OrderStatus.ORDER_ACCEPTED);
     this.newOrders$ = backofficeOrdersState.getOrdersFilteredByOrderStatus(OrderStatus.ORDER_NEW);
     this.processingOrders$ = backofficeOrdersState.getOrdersFilteredByOrderStatus(OrderStatus.ORDER_PROCESSING);
@@ -50,7 +44,12 @@ export class OrdersPageComponent {
     this.backofficeOrdersState.sortOrdersOnlyOnFE(sort);
   }
 
-}
 
-const mapTabIdToOrderStatus = () => {
-};
+  handleFilter(matTabChangeEvent: MatTabChangeEvent) {
+    const tabIndex = matTabChangeEvent.index;
+    const orderStatus: OrderStatus | undefined = tabIndex === 0 ? undefined :
+      tabIndex === 1 ? OrderStatus.ORDER_NEW : tabIndex === 2 ? OrderStatus.ORDER_ACCEPTED :
+        tabIndex === 3 ? OrderStatus.ORDER_PROCESSING : tabIndex === 4 ? OrderStatus.ORDER_CANCELED : OrderStatus.ORDER_DELIVERED;
+    this.backofficeOrdersState.filterOrdersOnlyFe(orderStatus);
+  }
+}

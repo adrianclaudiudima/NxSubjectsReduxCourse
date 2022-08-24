@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Order, OrderStatus } from "@ngrx-orders-workshop/libs/core/model";
+import { Order, OrderStatus, PaginationConfig } from "@ngrx-orders-workshop/libs/core/model";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { map, Observable } from "rxjs";
 import { orderTableDetailExpandTrigger } from "./order-table.animations";
 import { Sort } from "@angular/material/sort";
 import { PageEvent } from "@angular/material/paginator";
-import { PaginationConfig } from "../../../../../../../../food-shop-backoffice/src/app/services/backoffice-orders-state.service";
 
 @Component({
   selector: "app-order-table",

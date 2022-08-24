@@ -18,8 +18,10 @@ import { LibsCoreComponentsNumberInputCounterModule } from "@ngrx-orders-worksho
 import { AppRouting } from "./app.routing";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { OrdersPageComponent } from "./components/orders-page/orders-page.component";
-import { BackofficeOrdersStateService } from "./services/backoffice-orders-state.service";
 import { DashboardPageComponent } from "./components/dashboard-page/dashboard-page.component";
+import { BoOrdersStatsService } from "./services/bo-orders-stats.service";
+import { BoOrdersPaginatedService } from "./services/bo-orders-paginated.service";
+import { BoOrdersService } from "./services/bo-orders.service";
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { DashboardPageComponent } from "./components/dashboard-page/dashboard-pa
     LibsCoreComponentsOrdersModule
   ],
   providers: [
-    BackofficeOrdersStateService
+    BoOrdersStatsService,
+    BoOrdersService,
+    BoOrdersPaginatedService
   ],
   bootstrap: [AppComponent]
 })

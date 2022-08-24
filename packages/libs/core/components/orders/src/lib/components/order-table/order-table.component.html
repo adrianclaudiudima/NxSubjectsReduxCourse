@@ -7,7 +7,7 @@
     mat-table [dataSource]="orders" multiTemplateDataRows class="w-full rounded shadow">
     <ng-container matColumnDef="orderId">
       <th mat-header-cell *matHeaderCellDef
-          mat-sort-header="orderId"
+          mat-sort-header="id"
           [ngClass]="{'!p-0' : isSmallScreen.value}">
         <div class="font-medium text-gray-800 text-sm" *ngIf="!isSmallScreen.value">
           Order No.
@@ -34,7 +34,7 @@
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="totalPrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="orderPaymentSummaryExtraFee.total">
         <div class="font-medium text-gray-800 text-sm">
           Price
         </div>

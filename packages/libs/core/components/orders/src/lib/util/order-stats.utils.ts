@@ -93,7 +93,7 @@ export const getTotalPriceOfOrderedProducts = (orders: Order[]) => {
 };
 
 
-export const getFirstRowStats = (orders: Order[]) => {
+export const getAllDeliveredCanceledOrdersStats = (orders: Order[]) => {
   return [
     getAllOrdersStats(orders),
     getDeliveredOrdersStats(orders),
@@ -101,7 +101,7 @@ export const getFirstRowStats = (orders: Order[]) => {
   ];
 };
 
-export const getSecondRowSats = (orders: Order[]) => {
+export const getNewProcessingAcceptedOrdersStats = (orders: Order[]) => {
   return [
     getNewOrdersStats(orders),
     getProcessingOrdersStats(orders),

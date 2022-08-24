@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "ngcc --properties es2020 browser module main",
-    "serve-json": "json-server --watch db.json"
+    "serve-json": "json-server --watch db.json",
+    "serve-foodshop": " nx run food-shop:serve:development",
+    "serve-foodshop-backoffice": "nx run food-shop-backoffice:serve:development"
   },
   "private": true,
   "dependencies": {

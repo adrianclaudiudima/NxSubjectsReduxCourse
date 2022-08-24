@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams, HttpResponse } from "@angular/common/http";
-import { catchError, map, Observable, of } from "rxjs";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { map, Observable } from "rxjs";
 import { Order, OrderStatus } from "@ngrx-orders-workshop/libs/core/model";
-import { PaginationConfig } from "../../../../../../../food-shop-backoffice/src/app/services/backoffice-orders-state.service";
+import { Sort } from "@angular/material/sort";
 
 @Injectable()
 export class OrdersApiService {
@@ -19,15 +19,17 @@ export class OrdersApiService {
     return this.httpClient.get<Order[]>("api/order");
   }
 
-  public loadOrdersPaginated(pageIndex: number, pageSize: number): Observable<{ orders: Order[], totalCount: number }> {
+  public loadOrdersPaginatedAndSorted(pageIndex: number, pageSize: number, sort: Sort): Observable<{ orders: Order[], totalCount: number }> {
     const _start = pageIndex * pageSize;
     const _end = _start + pageSize;
-
+    const _sort = sort.active;
+    const _order = sort.direction;
+    let params: HttpParams = new HttpParams().append("_start", _start).append("_end", _end);
+    if (sort.direction !== "" && sort.direction !== null) {
+      params = params.append("_sort", _sort).append("_order", _order);
+    }
     return this.httpClient.get<Order[]>("api/order", {
-      observe: "response", params: {
-        "_start": _start,
-        "_end": _end
-      }
+      observe: "response", params: params
     }).pipe(
       map(response => {
         return {

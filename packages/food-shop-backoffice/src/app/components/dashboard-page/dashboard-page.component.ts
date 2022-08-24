@@ -1,11 +1,11 @@
 import { Component } from "@angular/core";
-import { StatsRow } from "@ngrx-orders-workshop/libs/core/components/stats";
-import { filter, map, Observable, switchMap } from "rxjs";
+import { Observable, switchMap, tap } from "rxjs";
 import { Order, OrderStatus } from "@ngrx-orders-workshop/libs/core/model";
-import { BackofficeOrdersStateService, OrdersState } from "../../services/backoffice-orders-state.service";
-import { getFirstRowStats, getSecondRowSats } from "@ngrx-orders-workshop/libs/core/components/orders";
 import { Sort, SortDirection } from "@angular/material/sort";
 import { ActivatedRoute, Router } from "@angular/router";
+import { BoOrdersStatsService, OrdersStatsState } from "../../services/bo-orders-stats.service";
+import { BoOrdersPaginatedService, OrdersPaginatedState } from "../../services/bo-orders-paginated.service";
+import { PageEvent } from "@angular/material/paginator";
 
 @Component({
   selector: "app-dashboard-page",
@@ -13,59 +13,74 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class DashboardPageComponent {
 
-  ordersState$: Observable<OrdersState>;
-  allCanceledDeliveredOrdersStats$: Observable<any>;
-  newAcceptedProcessingOrdersStats$: Observable<any>;
+  ordersState$: Observable<OrdersPaginatedState>;
+  stats$: Observable<OrdersStatsState>;
 
-  stats: StatsRow[] = [];
 
   constructor(
-    private backofficeOrdersState: BackofficeOrdersStateService,
+    private boOrdersPaginatedService: BoOrdersPaginatedService,
+    private boOrdersStatsService: BoOrdersStatsService,
     private router: Router,
     private activatedRouter: ActivatedRoute) {
 
     this.ordersState$ = this.activatedRouter.queryParamMap.pipe(
-      map(queryParamMap => {
-        const sortKey = queryParamMap.get("sortKey");
-        const sortDirection = queryParamMap.get("sortDirection");
-        if (sortKey !== null && sortKey !== "" && sortDirection !== null && sortDirection !== "") {
-          this.backofficeOrdersState.sortOrdersOnlyOnFE({ direction: (sortDirection as SortDirection), active: sortKey });
-        }
+      tap(queryParamMap => {
+        const sortKey = queryParamMap.get("sortKey") as string;
+        const sortDirection = queryParamMap.get("sortDirection") as SortDirection;
+        const pageIndex = queryParamMap.get("pageIndex") !== null ? Number(queryParamMap.get("pageIndex")) : undefined;
+        const pageSize = queryParamMap.get("pageSize") !== null ? Number(queryParamMap.get("pageSize")) : undefined;
+        this.boOrdersPaginatedService.updateSortAndPaginationState({ active: sortKey, direction: sortDirection },
+          { pageIndex, pageSize });
       }),
-      switchMap(() => backofficeOrdersState.ordersStateSorted$)
+      switchMap(() => boOrdersPaginatedService.orderSortedAndPaginated$)
     );
-
-    backofficeOrdersState.loadAllOrders();
-
-    this.allCanceledDeliveredOrdersStats$ = this.ordersState$.pipe(
-      filter(ordersState => ordersState.paginatedOrders.domain.length > 0),
-      map(ordersState => getFirstRowStats(ordersState.paginatedOrders.domain))
-    );
-    this.newAcceptedProcessingOrdersStats$ = this.ordersState$.pipe(
-      filter(data => data.paginatedOrders.domain.length > 0),
-      map(ordersState => getSecondRowSats(ordersState.paginatedOrders.domain))
-    );
+    boOrdersStatsService.loadAllStats();
+    this.stats$ = this.boOrdersStatsService.ordersStatsState$;
   }
 
 
   updateOrderStatus(payload: { order: Order; newOrderStatus: OrderStatus }) {
-    this.backofficeOrdersState.updateOrderStatus(payload.order, payload.newOrderStatus);
+    this.boOrdersPaginatedService.updateOrderStatus(payload.order, payload.newOrderStatus);
+    this.boOrdersStatsService.loadAllStats();
   }
 
   reloadOrders(): void {
-    this.backofficeOrdersState.loadAllOrders();
+    this.boOrdersPaginatedService.refreshOrders();
   }
 
   handleSortChange(sort: Sort) {
-
     const sortChange: Partial<{ sortKey: string, sortDirection: string }> = {};
     if (sort.active !== "" && sort.direction !== "") {
       sortChange.sortKey = sort.active;
       sortChange.sortDirection = sort.direction;
+      this.router.navigate(["/"], { queryParams: sortChange, queryParamsHandling: "merge" });
+    } else {
+      const pageChange: Partial<{ pageIndex: number, pageSize: number }> = {};
+      if (this.activatedRouter.snapshot.queryParamMap.get("pageIndex")) {
+        pageChange.pageIndex = this.activatedRouter.snapshot.queryParamMap.get("pageIndex") as unknown as number;
+      }
+      if (this.activatedRouter.snapshot.queryParamMap.get("pageSize")) {
+        pageChange.pageSize = this.activatedRouter.snapshot.queryParamMap.get("pageSize") as unknown as number;
+      }
+      if (pageChange.pageIndex !== undefined && pageChange.pageSize !== undefined) {
+        this.router.navigate(["/"], { queryParams: pageChange });
+      } else {
+        this.router.navigate(["/"]);
+      }
     }
-    this.backofficeOrdersState.sortOrdersOnlyOnFE(sort);
-    this.router.navigate(["/"], { queryParams: sortChange });
   }
+
+  reloadStats() {
+    this.boOrdersStatsService.loadAllStats();
+  }
+
+  handlePageChanged(pageEvent: PageEvent) {
+    const pageChange: Partial<{ pageIndex: number, pageSize: number }> = {};
+    pageChange.pageIndex = Number(this.activatedRouter.snapshot.queryParamMap.get("pageSize")) === pageEvent.pageSize ? pageEvent.pageIndex : 0;
+    pageChange.pageSize = pageEvent.pageSize;
+    this.router.navigate(["/"], { queryParams: pageChange, queryParamsHandling: "merge" });
+  }
+
 }
 
 
